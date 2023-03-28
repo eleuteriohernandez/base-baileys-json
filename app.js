@@ -31,7 +31,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     })
     .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta *si* o *no*', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
-    }, null, null, flowOtros)
+    }, flowOtros)
     .addAnswer('¿Cuál es tu nivel de estudios?')
     .addAnswer('Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
