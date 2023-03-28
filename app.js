@@ -20,35 +20,14 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('¿Cual es tu primer Apellido?', {capture:true}, (ctx) => {
         console.log('Info apellido: ', ctx.body)
     })
-    .addAnswer('¿Desde donde ves Netflix con mayor frecuencia?', {
-        buttons:[
-            {
-                body:'Televisión'
-            },
-            {
-                body:'Ordenador o Portátil'
-            },
-            {
-                body:'Movil'
-            },
-            {
-                body:'Tablet'
-            }
-        ]
-    })
+    .addAnswer('¿Desde donde ves Netflix con mayor frecuencia?', buttons:[ {body:'Televisión'}, {body:'Ordenador o Portátil'}, {body:'Movil'}, {body:'Tablet'}]})
     .addAnswer('¿Cómo conociste la plataforma de Netflix?', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
     })
-    .addAnswer('¿Tienes otros servicios de streaming además de Netflix?', {
-        buttons:[
-            {
-                body:'Sí'
-            },
-            {
-                body:'No'
-            }
-        ]
+    .addAnswer('¿Tienes otros servicios de streaming además de Netflix?', buttons:[{ body:'Si'} ,{body:'No'}] , {capture:true}, (ctx) => {
+        console.log('Otros streaming : ', ctx.body)
     })
+
 
 const main = async () => {
     const adapterDB = new JsonFileAdapter()
