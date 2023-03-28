@@ -14,7 +14,12 @@ const flowRecomendation = addKeyword(['6','7','8','9','10'])
 const flowRecomendationNo = addKeyword(['0','1','2','3','4','5'])
     .addAnswer('Vaya, no lo recomendarías,  ¿por qué? ¿Qué podemos cambiar?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
-    }, flowRecomendation)
+    })
+    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 (Ejemplo: 28)', {capture:true}, (ctx) => {
+        console.log('Edad: ', ctx.body)
+    })
+    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
+               '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
 const flowOtrosNo = addKeyword(['no','nop'])
     .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
@@ -30,7 +35,10 @@ const flowOtrosSi = addKeyword(['si','sí'])
     })
     .addAnswer('Y con respecto a las otras plataformas, ¿Qué te parece más sencillo de utilizar Netflix o cualquiera de tus otros servicios de streaming?', {capture:true}, (ctx) => {
         console.log('Info comparativa: ', ctx.body)
-    }, flowOtrosNo)
+    })
+    .addAnswer('Del 1 al 10 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 10, lo recomendaria a todos y 0 a nadie', {capture:true}, (ctx) => {
+        console.log('Nivel de estudios: ', ctx.body)
+    }, [flowRecomendationNo,flowRecomendation])
 
 const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
