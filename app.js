@@ -20,7 +20,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('¿Cual es tu primer Apellido?', {capture:true}, (ctx) => {
         console.log('Info apellido: ', ctx.body)
     })
-    .addAnswer('¿Desde donde ves Netflix con mayor frecuencia?', buttons:[ {body:'Televisión'}, {body:'Ordenador o Portátil'}, {body:'Movil'}, {body:'Tablet'}]})
+    .addAnswer('¿Desde donde ves Netflix con mayor frecuencia?', buttons:[ {body:'Televisión'}, {body:'Ordenador o Portátil'}, {body:'Movil'}, {body:'Tablet'}])
     .addAnswer('¿Cómo conociste la plataforma de Netflix?', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
     })
