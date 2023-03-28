@@ -4,19 +4,33 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const flowOtros = addKeyword(['si','sí'])
+const flowOtrosSi = addKeyword(['si','sí'])
     .addAnswer('Igual que yo, tengo varios más 😄 ¿Cuáles tienes contratados, escribe sus nombres?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
     })
     .addAnswer('Y con respecto a las otras plataformas, ¿Qué te parece más sencillo de utilizar Netflix o cualquiera de tus otros servicios de streaming?', {capture:true}, (ctx) => {
         console.log('Info comparativa: ', ctx.body)
+    }, flowOtrosNo)
+
+const flowOtrosNo = addKeyword(['no','nop'])
+    .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
+        console.log('Nivel de estudios: ', ctx.body)
     })
+    .addAnswer('¿Recomendarías el servicio de Netflix a tus amigos  o familiares?', {capture:true}, (ctx) => {
+        console.log('Nivel de estudios: ', ctx.body)
+    }, [flowRecomendationNo,flowRecomendation])
 
-
-const flowRecomendation = addKeyword(['no','nop'])
+const flowRecomendationNo = addKeyword(['no','nop'])
     .addAnswer('Vaya, no lo recomendarías,  ¿por qué? ¿Qué podemos cambiar?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
+    }, flowRecomendation)
+
+const flowRecomendation = addKeyword(['si','sí'])
+    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 (Ejemplo: 28)', {capture:true}, (ctx) => {
+        console.log('Edad: ', ctx.body)
     })
+    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
+               '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
 const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
@@ -44,18 +58,8 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     })
     .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta *si* o *no*', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
-    }, flowOtros)
-    .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
-        console.log('Nivel de estudios: ', ctx.body)
-    })
-    .addAnswer('¿Recomendarías el servicio de Netflix a tus amigos  o familiares?', {capture:true}, (ctx) => {
-        console.log('Nivel de estudios: ', ctx.body)
-    }, flowRecomendation)
-    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 (Ejemplo: 28)', {capture:true}, (ctx) => {
-        console.log('Edad: ', ctx.body)
-    })
-    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
-               '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
+    }, [flowOtrosSi,flowOtrosNo])
+
 
 const main = async () => {
     const adapterDB = new JsonFileAdapter()
