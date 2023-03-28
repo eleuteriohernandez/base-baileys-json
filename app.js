@@ -39,7 +39,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('Genial, ¿y por último cuál es tu edad?', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
     })
-    .addAnswer('Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
+    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
 const main = async () => {
