@@ -4,6 +4,10 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
+const flowOtros = addKeyword(['Si','Sí'])
+    .addAnswer('En caso de sí: ¿Cuáles tienes contratados, escribe sus nombres?', {capture:true}, (ctx) => {
+        console.log('Info nombre: ', ctx.body)
+    })
 
 const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
@@ -34,7 +38,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     })
     .addAnswer('Genial, ¿y por último cuál es tu edad?', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
-    })
+    }, null, [flowOtros])
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
