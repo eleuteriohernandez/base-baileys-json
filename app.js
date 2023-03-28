@@ -4,10 +4,6 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const flowSencillo = addKeyword('No')
-    .addAnswer('¿Si tu respuesta ha sido No, cuéntame brevemente qué problemas te han surgido para poder ayudarte en el futuro?', {capture:true}, (ctx) => {
-        console.log('Info nombre: ', ctx.body)
-    })
 
 const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
@@ -31,7 +27,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     })
     .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta si, no, o no sabe', {capture:true}, (ctx) => {
         console.log('Tiene otros servicios: ', ctx.body)
-    },null, null, flowSencillo)
+    })
     .addAnswer('¿Cuál es tu nivel de estudios?')
     .addAnswer('Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
