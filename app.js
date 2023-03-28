@@ -20,12 +20,12 @@ const flowOtrosNo = addKeyword(['no','nop'])
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
-const flowRecomendationNo = addKeyword(['no','nop'])
+const flowRecomendationNo = addKeyword(['0','1','2','3','4','5'])
     .addAnswer('Vaya, no lo recomendarías,  ¿por qué? ¿Qué podemos cambiar?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
     }, flowRecomendation)
 
-const flowRecomendation = addKeyword(['si','sí'])
+const flowRecomendation = addKeyword(['6','7','8','9','10'])
     .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 (Ejemplo: 28)', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
     })
@@ -54,10 +54,10 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
         console.log('Recomendado por : ', ctx.body)
     })
     .addAnswer('Del 1 al 10 cómo de sencillo te parece usar Netflix (Siendo 10 muy fácil de usar, y 1 muy difícil)', {capture:true}, (ctx) => {
-        console.log('Recomendado por : ', ctx.body)
+        console.log('Sencillez : ', ctx.body)
     })
     .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta *si* o *no*', {capture:true}, (ctx) => {
-        console.log('Recomendado por : ', ctx.body)
+        console.log('Otros contratados : ', ctx.body)
     }, [flowOtrosSi,flowOtrosNo])
 
 
