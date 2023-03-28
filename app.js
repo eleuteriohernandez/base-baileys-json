@@ -4,7 +4,7 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const flowOtros = addKeyword(['Si','Sí'])
+const flowOtros = addKeyword(['si','sí'])
     .addAnswer('En caso de sí: ¿Cuáles tienes contratados, escribe sus nombres?', {capture:true}, (ctx) => {
         console.log('Info nombre: ', ctx.body)
     })
@@ -29,16 +29,14 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('¿Cómo conociste la plataforma de Netflix?', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
     })
-    .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta si, no, o no sabe', {capture:true}, (ctx) => {
-        console.log('Tiene otros servicios: ', ctx.body)
-    })
+    .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta *si* o *no*', null, null, flowOtros)
     .addAnswer('¿Cuál es tu nivel de estudios?')
     .addAnswer('Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     })
     .addAnswer('Genial, ¿y por último cuál es tu edad?', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
-    }, null, [flowOtros])
+    })
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                '👉 Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
