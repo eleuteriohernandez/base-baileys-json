@@ -37,7 +37,7 @@ const flowOtrosSi = addKeyword(['si','sí'])
     .addAnswer('¿cuál es tu edad? Introduce solo numeros porfa Ejemplo 28', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
     })
-    .addAnswer('Y para terminar del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
+    .addAnswer('Y para terminar del *1 al 5* cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo *5*, lo recomendaria a todos y *1* a nadie', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
@@ -46,8 +46,8 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer(
         [
             'Soy Eleuterio Hernández y he creado una encuesta para superar el ejercicio de esta semana del Lab 01 de Investigación de Mercados con la suposición de que Netflix necesita información sobre sus usuarios',
-            '👉 Te agradezco muchísimo tu participación, tu tiempo es oro. No te preocupes si te equivocas al constar esto es solo una prueba',
-            ' Solo te llevará 3 minutos, empecemos… ',
+            '👉 Te agradezco muchísimo tu participación, tu tiempo es oro. No te preocupes si te equivocas al constestar ya que esto es solo una prueba',
+            ' *No es necesario que la información sea real* Solo te llevará 3 minutos, empecemos… ',
         ]
     )
     .addAnswer('¿Cual es tu nombre?', {capture:true}, (ctx) => {
