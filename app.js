@@ -5,12 +5,6 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
 const flowRecomendation = addKeyword(['3','4','5'])
-    .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
-        console.log('Nivel de estudios: ', ctx.body)
-    })
-    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa Ejemplo: 28', {capture:true}, (ctx) => {
-        console.log('Edad: ', ctx.body)
-    })
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                'Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
@@ -18,17 +12,11 @@ const flowRecomendationNo = addKeyword(['0','1','2'])
     .addAnswer('Vaya, no lo recomendarías,  ¿por qué? ¿Qué podemos cambiar?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
     })
-    .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
-        console.log('Nivel de estudios: ', ctx.body)
-    })
-    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa Ejemplo: 28', {capture:true}, (ctx) => {
-        console.log('Edad: ', ctx.body)
-    })
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                'Muchas gracias por tu tiempo y por usar nuestro servicio'])
 
 const flowOtrosNo = addKeyword(['no','nop'])
-    .addAnswer('Del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
+    .addAnswer('Y para terminar del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
@@ -39,7 +27,13 @@ const flowOtrosSi = addKeyword(['si','sí'])
     .addAnswer('Y con respecto a las otras plataformas, ¿Qué te parece más sencillo de utilizar Netflix o cualquiera de tus otros servicios de streaming?', {capture:true}, (ctx) => {
         console.log('Info comparativa: ', ctx.body)
     })
-    .addAnswer('Del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
+    .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
+        console.log('Nivel de estudios: ', ctx.body)
+    })
+    .addAnswer('¿cuál es tu edad? Introduce solo numeros porfa Ejemplo 28', {capture:true}, (ctx) => {
+        console.log('Edad: ', ctx.body)
+    })
+    .addAnswer('Y para terminar del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
