@@ -5,7 +5,7 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
 const flowRecomendation = addKeyword(['3','4','5'])
-    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 (Ejemplo: 28)', {capture:true}, (ctx) => {
+    .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa 🙏 Ejemplo: 28', {capture:true}, (ctx) => {
         console.log('Edad: ', ctx.body)
     })
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
@@ -25,7 +25,7 @@ const flowOtrosNo = addKeyword(['no','nop'])
     .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     })
-    .addAnswer('Del 1 al 10 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 10, lo recomendaria a todos y 0 a nadie', {capture:true}, (ctx) => {
+    .addAnswer('Del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
@@ -36,7 +36,7 @@ const flowOtrosSi = addKeyword(['si','sí'])
     .addAnswer('Y con respecto a las otras plataformas, ¿Qué te parece más sencillo de utilizar Netflix o cualquiera de tus otros servicios de streaming?', {capture:true}, (ctx) => {
         console.log('Info comparativa: ', ctx.body)
     })
-    .addAnswer('Del 0 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 0 a nadie', {capture:true}, (ctx) => {
+    .addAnswer('Del 1 al 5 cuanto recomendarias el servicio de Netflix a tus amigos  o familiares? Siendo 5, lo recomendaria a todos y 1 a nadie', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     }, [flowRecomendationNo,flowRecomendation])
 
@@ -61,7 +61,7 @@ const flowPrincipal = addKeyword(['edix','bootcamp'])
     .addAnswer('¿Cómo conociste la plataforma de Netflix?', {capture:true}, (ctx) => {
         console.log('Recomendado por : ', ctx.body)
     })
-    .addAnswer('Del 1 al 10 cómo de sencillo te parece usar Netflix (Siendo 10 muy fácil de usar, y 1 muy difícil)', {capture:true}, (ctx) => {
+    .addAnswer('Del 1 al 5 cómo de sencillo te parece usar Netflix (Siendo 5 muy fácil de usar, y 1 muy difícil)', {capture:true}, (ctx) => {
         console.log('Sencillez : ', ctx.body)
     })
     .addAnswer('¿Tienes contratados otros servicios de streaming además de Netflix? Contesta *si* o *no*', {capture:true}, (ctx) => {
