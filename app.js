@@ -8,12 +8,7 @@ const flowRecomendation = addKeyword(['3','4','5'])
     .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
                'Muchas gracias por tu tiempo y por usar nuestro servicio ❤️'])
 
-const flowRecomendationNo = addKeyword(['0','1','2'])
-    .addAnswer('¿Que podemos cambiar para que nos recomiendes?', {capture:true}, (ctx) => {
-        console.log('Porque no recomienda: ', ctx.body)
-    })
-    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
-               'Muchas gracias por tu tiempo y por usar nuestro servicio ❤️'])
+const flowRecomendationNo = addKeyword(['0','1','2']).addAnswer('¿Que podemos cambiar para que nos recomiendes?', {capture:true}, (ctx) => {console.log('Porque no recomienda: ', ctx.body)}).addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.','Muchas gracias por tu tiempo y por usar nuestro servicio ❤️'])
 
 const flowOtrosNo = addKeyword(['no','nop'])
     .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
