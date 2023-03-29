@@ -5,7 +5,7 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
 const flowRecomendation = addKeyword(['3','4','5'])
-    .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
+    .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     })
     .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa Ejemplo: 28', {capture:true}, (ctx) => {
@@ -18,7 +18,7 @@ const flowRecomendationNo = addKeyword(['0','1','2'])
     .addAnswer('Vaya, no lo recomendarías,  ¿por qué? ¿Qué podemos cambiar?', {capture:true}, (ctx) => {
         console.log('Otras plataformas: ', ctx.body)
     })
-    .addAnswer(['¿Cuál es tu nivel de estudios?', 'Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado'], {capture:true}, (ctx) => {
+    .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
         console.log('Nivel de estudios: ', ctx.body)
     })
     .addAnswer('Genial, ¿y por último cuál es tu edad? Introduce solo numeros porfa Ejemplo: 28', {capture:true}, (ctx) => {
