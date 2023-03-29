@@ -9,11 +9,9 @@ const flowRecomendation = addKeyword(['3','4','5'])
                'Muchas gracias por tu tiempo y por usar nuestro servicio ❤️'])
 
 const flowRecomendationNo = addKeyword(['0','1','2'])
-    .addAnswer('¿Que podemos cambiar?', {capture:true}, (ctx) => {
+    .addAnswer(' Por ultimo escribemos que podemos cambiar y muchas gracias tanto por tu tiempo para responder como por usar nuestro servicio ❤️ ', {capture:true}, (ctx) => {
         console.log('Porque no recomienda: ', ctx.body)
     })
-    .addAnswer(['Eh Voilà! ya hemos terminado, ¿Viste? Fue solo un momento y ahora gracias a tu colaboración miles de personas serán ayudadas con tus respuestas.',
-               'Muchas gracias por tu tiempo y por usar nuestro servicio ❤️'])
 
 const flowOtrosNo = addKeyword(['no','nop'])
     .addAnswer('¿Cuál es tu nivel de estudios? Ninguno, Secundaria, Formación Profesional, Grado universitario, Master o Doctorado', {capture:true}, (ctx) => {
